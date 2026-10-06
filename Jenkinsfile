@@ -2,11 +2,12 @@ pipeline {
     agent any
     environment {
         APP_PORT = '9090'
-        JOB_NAME = 'abracadabra!'
+        abracadabra = "${JOB_NAME}"
     }
     stages {
         stage ('Build') {
             steps {
+                  echo "Starting Job ${abracadabra}..."
                   sh 'mvn -B package -Dskiptests'
             }
         }
